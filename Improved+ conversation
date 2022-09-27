@@ -1,0 +1,105 @@
+import java.util.Scanner;
+
+/**
+ * Start the program
+ * Ask user's name
+ * Ask user's age
+ * Ask user's favorite genre
+ * Compare age and favorite genre
+ * Recommend a book based on that
+ * Ask user if they want to restart
+ */
+public class Main {
+
+
+
+
+
+
+
+    public static void print(String s) {
+        System.out.println(s);
+    }
+//The print method
+    public static void Name() {
+        String Name;
+        print("What is your name?");
+        Name = getUserString();
+        print("Hello " + Name);
+  //Asks user their name
+    }
+
+    public static String getUserString() {
+        Scanner in = new Scanner(System.in);
+        return in.nextLine();
+   //Asks user input
+    }
+
+    public static int Int() {
+        Scanner nb = new Scanner(System.in);
+        return nb.nextInt();
+ //also asks user input
+    }
+
+    public static int age() {
+        print("How old are you?");
+        return Int();
+//Asks user their age
+   }
+
+    public static int getGenre() {
+        print("Okay, and what is your favorite genre? (Reply with (< 0) for Fantasy and (> -1) for Sci-Fi)");
+        int genre = Int();
+        {
+            if (genre < 0)
+                print("You like Fantasy then");
+            else
+                print("You like Sci-Fi then");
+        }
+//Asks user about their  favorite genre
+        return genre;
+    }
+
+
+    public static void conversation() {
+
+        while (true) {
+            Name();
+            int age = age();
+            int genre = getGenre();
+            if ((age < 13) & (age < 17) & (genre < 0)) {
+                print("Judging by your age and favorite genre I would suggest you read ''Harry Potter'' ");
+            } else if ((age > 13) & (age < 17) & (genre > -1)) {
+                print("Judging by your age and favorite genre I would suggest you read ''George's Secret Key '' book series");
+            } else if ((age > 16) & (age < 25) & (genre > -1)) {
+                print("Judging by your age and favorite genre I would suggest you read ''Infinite and the Divine'' ");
+            } else if ((age > 16) & (age < 25) & (genre < 0)) {
+                print("Judging by your age and favorite genre I would suggest you read ''Lord of the Rings ''");
+            } else {
+                print("I don't know what to suggest to you then.");
+          //The conversation itself
+            }
+        print("Do you want to start again?");
+            String answer = getUserString();
+            if (answer.equals("Yes") | answer.equals("yes") | answer.equals("y") | answer.equals("Y")) {
+                print("Okay then. Let's begin again.");
+            } else if (answer.equals("No") | answer.equals("no") | answer.equals("n") | answer.equals("N")) {
+                print("Okay then. Bye!");
+                break;
+            } else {
+                print("I'll interpret that as 'No'. Okay then. Bye!");
+                break;
+          //The restart option
+            }
+        }
+
+    }
+    public static void main(String args[]) {
+        Main speakytime = new Main();
+        speakytime.conversation();
+    }
+}
+
+
+
+//411 9!?4!$3 7#3 0nn^!$!4#
